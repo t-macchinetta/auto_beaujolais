@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>auto_beaujolais</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(window).on('load', function () {
+            const url = "words.json";
+            $.getJSON(url)
+                .done(function (data, textStatus, jqXHR) {
+                    for (j = 0; j < 10; j++) {
+                        let word = "";
+                        for (i = 0; i < data.length; i++) {
+                            // let word = "";
+                            let rand = ~~(Math.random() * (data[i].length - 0) + 0);
+                            word = word + data[i][rand];
+                        }
+                        console.log(status);
+                        console.log(word);
+                        $('body').append("<p>" + word + "</p>");
+                    }
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR.status + textStatus + errorThrown);
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+        });
+    </script>
+</body>
+
+</html>

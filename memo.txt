@@ -1,0 +1,11 @@
+乱数
+0-24
+
+繰り返し
+a=0からa.length-1まで
+
+出力
+console.log(a[a.length-1].end[1]);
+
+
+
