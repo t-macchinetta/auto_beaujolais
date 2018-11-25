@@ -13,19 +13,23 @@
     <script>
         $(window).on('load', function () {
             const url = "words.json";
+            let arr = [];
+            // jsonファイルから読み込んでランダムで配列に格納
             $.getJSON(url)
                 .done(function (data, textStatus, jqXHR) {
-                    for (j = 0; j < 10; j++) {
+                    for (j = 0; j < 3; j++) {
                         let word = "";
                         for (i = 0; i < data.length; i++) {
-                            // let word = "";
-                            let rand = ~~(Math.random() * (data[i].length - 0) + 0);
+                            const min = 0;
+                            const max = data[i].length;
+                            let rand = ~~(Math.random() * (max - min) + min);
                             word = word + data[i][rand];
                         }
-                        console.log(status);
-                        console.log(word);
-                        $('body').append("<p>" + word + "</p>");
+                        // console.log(status);
+                        // console.log(word);
+                        arr.push(word);
                     }
+                    // console.log(arr);
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR.status + textStatus + errorThrown);
@@ -33,6 +37,22 @@
                 .always(function () {
                     console.log("complete");
                 });
+
+            // 配列の中身を出力する処理
+            const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+            const time = 1000;
+            Promise.resolve()
+                .then(() => wait(time))
+                .then(() => console.log("さーて来週のボジョレーさんは〜"))
+                .then(() => wait(time))
+                .then(() => console.log(arr[0]))
+                .then(() => wait(time))
+                .then(() => console.log(arr[1]))
+                .then(() => wait(time))
+                .then(() => console.log(arr[2]))
+                .then(() => wait(time))
+                .then(() => console.log("の3本です！"));
+
         });
     </script>
 </body>
