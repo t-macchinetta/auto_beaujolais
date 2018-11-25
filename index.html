@@ -42,7 +42,8 @@
             const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
             const time = 1000;
             const first = "さーて，来週のボジョレーさんは〜";
-            const end = ["の3本です！", "来週もまた見てくださいね！ (*´ω｀*)ﾓﾌﾌﾌﾌ"];
+            const end = ["の3本です！", "来週もまた見てくださいね！"];
+            const mof = "(*´ω｀*)ﾓﾌﾌﾌﾌ";
             const start_tag = "<p>";
             const end_tag = "</p>";
             Promise.resolve()
@@ -78,6 +79,11 @@
                 .then(() => {
                     $('body').append(start_tag + end[1] + end_tag);
                     console.log(end[1]);
+                })
+                .then(() => wait(time))
+                .then(() => {
+                    $('body').append(start_tag + mof + end_tag);
+                    console.log(mof);
                 });
 
         });
