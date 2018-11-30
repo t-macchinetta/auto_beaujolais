@@ -40,7 +40,7 @@
             const time = 500;
             const first = "さーて，今年のボジョレーさんは〜";
             const end = ["の3本です！", "来年もまた飲んでくださいね！"];
-            // const mof = "(*´ω｀*)ﾓﾌﾌﾌﾌ";
+            const mof = "(*´ω｀*)ﾓﾌﾌﾌﾌ";
             function auto_tag(tagName, id, className, text) {
                 let str = '<' + tagName + ' id="' + id + '" class="' + className + '">' + text + '</' + tagName + '>';
                 return str;
@@ -51,48 +51,48 @@
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + first + end_tag);
-                    $('body').append(auto_tag("h2", "", "", first));
+                    $('body').append(auto_tag("p", "", "", first));
                     // console.log(first);
                 })
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + "・" + arr[0] + end_tag);
-                    $('body').append(auto_tag("h2", "", "", arr[0]));
+                    $('body').append(auto_tag("p", "", "", arr[0]));
                     // console.log("・" + arr[0]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + "・" + arr[1] + end_tag);
-                    $('body').append(auto_tag("h2", "", "", arr[1]));
+                    $('body').append(auto_tag("p", "", "", arr[1]));
                     // console.log("・" + arr[1]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + "・" + arr[2] + end_tag);
-                    $('body').append(auto_tag("h2", "", "", arr[2]));
+                    $('body').append(auto_tag("p", "", "", arr[2]));
                     // console.log("・" + arr[2]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + end[0] + end_tag);
-                    $('body').append(auto_tag("h2", "", "", end[0]));
+                    $('body').append(auto_tag("p", "", "", end[0]));
                     // console.log(end[0]);
                 })
                 .then(() => wait(time))
                 .then(() => {
                     // $('body').append(start_tag + end[1] + end_tag);
-                    $('body').append(auto_tag("h2", "", "", end[1]));
+                    $('body').append(auto_tag("p", "", "", end[1]));
                     // console.log(end[1]);
+                })
+                .then(() => wait(time))
+                .then(() => {
+                    // $('body').append(start_tag + mof + end_tag);
+                    $('body').append(auto_tag("p", "", "", mof));
+                    console.log(mof);
                 });
-            // .then(() => wait(time))
-            // .then(() => {
-            //     $('body').append(start_tag + mof + end_tag);
-            //     $('body').append(auto_tag("h2", "", "", mof));
-            //     console.log(mof);
-            // });
 
         });
     </script>
