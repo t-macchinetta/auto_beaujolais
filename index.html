@@ -25,11 +25,8 @@
                             let rand = ~~(Math.random() * (max - min) + min);
                             word = word + data[i][rand];
                         }
-                        // console.log(status);
-                        // console.log(word);
                         arr.push(word);
                     }
-                    // console.log(arr);
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR.status + textStatus + errorThrown);
@@ -40,51 +37,62 @@
 
             // 配列の中身を出力する処理
             const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
-            const time = 1000;
-            const first = "さーて，来週のボジョレーさんは〜";
-            const end = ["の3本です！", "来週もまた見てくださいね！"];
-            const mof = "(*´ω｀*)ﾓﾌﾌﾌﾌ";
+            const time = 500;
+            const first = "さーて，今年のボジョレーさんは〜";
+            const end = ["の3本です！", "来年もまた飲んでくださいね！"];
+            // const mof = "(*´ω｀*)ﾓﾌﾌﾌﾌ";
+            function auto_tag(tagName, id, className, text) {
+                let str = '<' + tagName + ' id="' + id + '" class="' + className + '">' + text + '</' + tagName + '>';
+                return str;
+            }
             const start_tag = "<p>";
             const end_tag = "</p>";
             Promise.resolve()
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + first + end_tag);
-                    console.log(first);
+                    // $('body').append(start_tag + first + end_tag);
+                    $('body').append(auto_tag("h2", "", "", first));
+                    // console.log(first);
                 })
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + "・" + arr[0] + end_tag);
-                    console.log("・" + arr[0]);
+                    // $('body').append(start_tag + "・" + arr[0] + end_tag);
+                    $('body').append(auto_tag("h2", "", "", arr[0]));
+                    // console.log("・" + arr[0]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + "・" + arr[1] + end_tag);
-                    console.log("・" + arr[1]);
+                    // $('body').append(start_tag + "・" + arr[1] + end_tag);
+                    $('body').append(auto_tag("h2", "", "", arr[1]));
+                    // console.log("・" + arr[1]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + "・" + arr[2] + end_tag);
-                    console.log("・" + arr[2]);
+                    // $('body').append(start_tag + "・" + arr[2] + end_tag);
+                    $('body').append(auto_tag("h2", "", "", arr[2]));
+                    // console.log("・" + arr[2]);
                     i++;
                 })
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + end[0] + end_tag);
-                    console.log(end[0]);
+                    // $('body').append(start_tag + end[0] + end_tag);
+                    $('body').append(auto_tag("h2", "", "", end[0]));
+                    // console.log(end[0]);
                 })
                 .then(() => wait(time))
                 .then(() => {
-                    $('body').append(start_tag + end[1] + end_tag);
-                    console.log(end[1]);
-                })
-                .then(() => wait(time))
-                .then(() => {
-                    $('body').append(start_tag + mof + end_tag);
-                    console.log(mof);
+                    // $('body').append(start_tag + end[1] + end_tag);
+                    $('body').append(auto_tag("h2", "", "", end[1]));
+                    // console.log(end[1]);
                 });
+            // .then(() => wait(time))
+            // .then(() => {
+            //     $('body').append(start_tag + mof + end_tag);
+            //     $('body').append(auto_tag("h2", "", "", mof));
+            //     console.log(mof);
+            // });
 
         });
     </script>
